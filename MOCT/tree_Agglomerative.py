@@ -1,9 +1,9 @@
 from __future__ import division, absolute_import
 import numpy as np
 import pandas as pd
-from sklearn.base import BaseEstimator
 from collections import Counter
 from imblearn.over_sampling import SMOTE
+from sklearn.base import BaseEstimator
 from sklearn.cluster import AgglomerativeClustering
 from joblib import Parallel, delayed
 

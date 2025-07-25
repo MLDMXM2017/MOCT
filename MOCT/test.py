@@ -16,6 +16,7 @@ def feature_select(x_train, y_train):
 
     return fea_index
 
+features_num = 50
 for name in ["HT29", "A375", "A549"]:
     data = read_data(name)
     data = pd.DataFrame(data)
@@ -45,8 +46,8 @@ for name in ["HT29", "A375", "A549"]:
         x_test = np.array(x_test, type(float))
             
         index = feature_select(x_train, y_train)
-        x_train = x_train[:, index[:50]]
-        x_test = x_test[:, index[:50]]
+        x_train = x_train[:, index[:features_num]]
+        x_test = x_test[:, index[:features_num]]
         
         clf = MOCT(max_depth=10, min_samples_leaf=0.1, method="SMOTE", n_jobs=16)
         clf.fit(x_train, y_train)
